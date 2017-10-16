@@ -14,15 +14,15 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let car of cars; let i = index">
-            <td [ngClass]="{ 'row-error': car.isFullyDemaged }"> {{ car.model }}</td>
-            <td> {{ car.plate }}</td>
-            <td> {{ car.deliveryDate }}</td>
-            <td> {{ car.deadline }}</td>
-            <td> {{ car.client.firstName }} {{ car.client.surname }}</td>
-            <td> {{ car.cost }}</td>
-            <td> ACTION PLACEHOLDER</td>
-          </tr>
+        <tr *ngFor="let car of cars; let i = index">
+          <td [ngClass]="{ 'row-error': car.isFullyDemaged }"> {{ car.model }}</td>
+          <td> {{ car.plate }}</td>
+          <td> {{ car.deliveryDate }}</td>
+          <td> {{ car.deadline }}</td>
+          <td> {{ car.client.firstName }} {{ car.client.surname }}</td>
+          <td> {{ car.cost }}</td>
+          <td> ACTION PLACEHOLDER</td>
+        </tr>
         </tbody>
       </table>
       <ng-template #noCarsInfo>
@@ -30,6 +30,21 @@
           <p>Currently no cars in service</p>
         </div>
       </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button (click)="showGross()" class="btn btn-primary btn-sm float-right" >SHOW BRUTTO</button>
+    </div>
+  </div>
+  <app-total-cost #totalCostRef [totalCost]="totalCost" (shownGross)="onShowGross($event)"></app-total-cost>
+  <div class="row" *ngIf="grossCost">
+    <div class="col-sm-12">
+      <div class="total-cost">
+        <p class="text-right">
+          TOTAL GROSS COST: {{ grossCost }} PLN
+        </p>
+      </div>
     </div>
   </div>
 </div>
