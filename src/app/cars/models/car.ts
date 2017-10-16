@@ -8,5 +8,5 @@ export interface Car {
   deadline: string;
   client: Client;
   cost: number;
-  isFullyDemaged: boolean;
+  isFullyDamaged: boolean;
 }
