@@ -62,7 +62,11 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.totalCostRef.showGross();
+    setTimeout(
+      () => {
+        this.totalCostRef.showGross();
+      }, 0
+    );
   }
 
   showGross(): void {
