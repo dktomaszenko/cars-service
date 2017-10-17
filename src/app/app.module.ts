@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {CarsModule} from './cars/cars.module';
-import {CarsService} from './cars/cars.service';
 import {CoreModule} from './core-module/core.module';
+import {CarsService} from './cars/cars.service';
+import {APP_ROUTING} from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {CoreModule} from './core-module/core.module';
     FormsModule,
     HttpModule,
     CarsModule,
-    CoreModule
+    CoreModule,
+    APP_ROUTING
   ],
   providers: [
     CarsService
