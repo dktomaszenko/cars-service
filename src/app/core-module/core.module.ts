@@ -6,6 +6,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    SidebarComponent
+  ],
   declarations: [SidebarComponent]
 })
 export class CoreModule { }
