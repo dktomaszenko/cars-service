@@ -50,7 +50,11 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   }
 
   showGross(): void {
-    this.totalCostRef.showGross();
+    if (this.grossCost) {
+      this.grossCost = null;
+    } else {
+      this.totalCostRef.showGross();
+    }
   }
 
   countTotalCost(): void {
