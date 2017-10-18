@@ -9,6 +9,7 @@ import {CoreModule} from './core-module/core.module';
 import {CarsService} from './cars/cars.service';
 import {AppRoutingModule} from './app-routing.module';
 import {CarsRoutingModule} from './cars/cars-routing.module';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {CarsRoutingModule} from './cars/cars-routing.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng4LoadingSpinnerModule,
     CarsModule,
     CoreModule,
     AppRoutingModule,

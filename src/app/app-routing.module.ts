@@ -6,7 +6,7 @@ import {CarsListComponent} from './cars/cars-list/cars-list.component';
 
 const APP_ROUTES: Route[] = [
   {path: 'cars', component: CarsListComponent},
-  {path: '**', pathMatch: 'full', redirectTo: 'cars'}
+  {path: '', pathMatch: 'full', redirectTo: 'cars'}
 ];
 
 @NgModule({
