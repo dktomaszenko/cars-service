@@ -8,19 +8,30 @@ import {CarInfo} from '../models/car-info';
 })
 export class CarsInfoComponent {
 
-  @Input() showinfo: boolean;
+  myswitch: boolean;
+
+  @Input() showinfo: any;
   @Output() shownInfo: EventEmitter<CarInfo> = new EventEmitter<CarInfo>();
+
+
+  constructor() {
+    this.myswitch = true;
+  }
+
+  btnShowInfo(): void {
+    this.myswitch = !this.myswitch;
+  }
 
   showInfoOb(): void {
     this.shownInfo.emit(
       {
-        text1: 'Special title treatment',
-        text2: 'With supporting text below as a natural lead-in to additional content.',
-        text3: 'Go somewhere',
-        myswitch: this.showinfo
+        value1: 'bla bla bla',
+        value2: 50,
+        value3: true
       }
     );
   }
+
 
 }
 

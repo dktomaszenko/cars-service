@@ -1,6 +1,5 @@
 export interface CarInfo {
-  text1: string;
-  text2: string;
-  text3: string;
-  myswitch?: boolean;
+  value1: string;
+  value2: number;
+  value3: boolean;
 }

@@ -20,6 +20,12 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   cars: Car[];
   myswitch = true;
 
+  text = {
+    text1: 'Special title treatment',
+    text2: 'With supporting text below as a natural lead-in to additional content.',
+    text3: 'Go somewhere'
+  };
+
   constructor(private carsService: CarsService) {
   }
 
@@ -39,7 +45,7 @@ export class CarsListComponent implements OnInit, AfterViewInit {
       () => {
         this.totalCostRef.showGross();
         this.infoCarsRef.showInfoOb();
-      }, 0
+      }, 1000
     );
   }
 
@@ -57,15 +63,13 @@ export class CarsListComponent implements OnInit, AfterViewInit {
     this.grossCost = grossCost;
   }
 
-  onShowInfo(text: CarInfo): void {
+  getShowInfo(text: CarInfo): void {
     this.showInfo = text;
+    console.log(this.showInfo);
   }
 
-  btnShowInfo() {
-    this.myswitch = false;
-    setTimeout(() => {
-      this.myswitch = true;
-    }, 5000);
+  onShowInfo(): void {
+    this.infoCarsRef.myswitch = !this.infoCarsRef.myswitch;
   }
 
 }
