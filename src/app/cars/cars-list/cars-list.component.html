@@ -44,13 +44,24 @@
       <button (click)="showGross()" class="btn btn-primary btn-sm float-right" >SHOW BRUTTO</button>
     </div>
   </div>
+
   <app-total-cost #totalCostRef [totalCost]="totalCost" (shownGross)="onShowGross($event)"></app-total-cost>
+  <app-cars-info #infoCarsRef [showinfo]="myswitch" (shownInfo)="onShowInfo($event)" ></app-cars-info>
   <div class="row" *ngIf="grossCost">
     <div class="col-sm-12">
       <div class="total-cost">
         <p class="text-right">
           TOTAL GROSS COST: {{ grossCost }} PLN
         </p>
+        <div class="col-sm-6" *ngIf="myswitch && showInfo">
+          <div class="card">
+            <div class="card-block">
+              <h3 class="card-title">{{ showInfo.text1 }}</h3>
+              <p class="card-text">{{ showInfo.text2 }}</p>
+              <button (click)="btnShowInfo()" class="btn btn-primary">{{ showInfo.text3 }}</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

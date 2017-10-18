@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@a
 import {Car} from '../models/car';
 import {TotalCostComponent} from '../total-cost/total-cost.component';
 import {CarsService} from '../cars.service';
+import {CarInfo} from '../models/car-info';
+import {CarsInfoComponent} from '../cars-info/cars-info.component';
 
 @Component({
   selector: 'app-cars-list',
@@ -11,9 +13,12 @@ import {CarsService} from '../cars.service';
 })
 export class CarsListComponent implements OnInit, AfterViewInit {
   @ViewChild('totalCostRef') totalCostRef: TotalCostComponent;
+  @ViewChild('infoCarsRef') infoCarsRef: CarsInfoComponent;
   totalCost: number;
   grossCost: number;
+  showInfo: CarInfo;
   cars: Car[];
+  myswitch = true;
 
   constructor(private carsService: CarsService) {
   }
@@ -33,6 +38,7 @@ export class CarsListComponent implements OnInit, AfterViewInit {
     setTimeout(
       () => {
         this.totalCostRef.showGross();
+        this.infoCarsRef.showInfoOb();
       }, 0
     );
   }
@@ -49,6 +55,17 @@ export class CarsListComponent implements OnInit, AfterViewInit {
 
   onShowGross(grossCost: number): void {
     this.grossCost = grossCost;
+  }
+
+  onShowInfo(text: CarInfo): void {
+    this.showInfo = text;
+  }
+
+  btnShowInfo() {
+    this.myswitch = false;
+    setTimeout(() => {
+      this.myswitch = true;
+    }, 5000);
   }
 
 }
