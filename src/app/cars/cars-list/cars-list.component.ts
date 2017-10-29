@@ -4,7 +4,6 @@ import {TotalCostComponent} from '../total-cost/total-cost.component';
 import {CarsService} from '../cars.service';
 import {CarInfo} from '../models/car-info';
 import {CarsInfoComponent} from '../cars-info/cars-info.component';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-cars-list',
@@ -19,7 +18,6 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   grossCost: number;
   showInfo: CarInfo;
   cars: Car[];
-  myswitch = true;
   cargando = true;
 
   text = {
@@ -28,22 +26,26 @@ export class CarsListComponent implements OnInit, AfterViewInit {
     text3: 'Go somewhere'
   };
 
-  constructor(private carsService: CarsService, private spinnerService: Ng4LoadingSpinnerService) {
+  constructor(private carsService: CarsService) {
   }
 
   ngOnInit() {
     this.loadCars();
-    this.spinnerService.show();
   }
 
   loadCars(): void {
     this.carsService.getCars().subscribe((cars) => {
+      this.cargando = false;
       this.cars = cars;
       this.countTotalCost();
     });
   }
 
   ngAfterViewInit() {
+    this.myUpdate();
+  }
+
+  myUpdate(): void {
     setTimeout(
       () => {
         this.totalCostRef.showGross();

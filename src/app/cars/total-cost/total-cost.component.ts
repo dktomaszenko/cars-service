@@ -11,7 +11,7 @@ export class TotalCostComponent {
   @Output() shownGross: EventEmitter<number> = new EventEmitter<number>();
   private VAT: number = 1.23;
 
-  showGross(): void {
+   showGross(): void {
     this.shownGross.emit(this.totalCost * this.VAT);
   }
 
